@@ -68,4 +68,3 @@ class TestVarasto(unittest.TestCase):
     def test_tekstin_printtaus(self):
         self.assertEqual(str(self.varasto), "saldo = 0, vielä tilaa 10")
 
-        hajalle

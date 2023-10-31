@@ -30,8 +30,11 @@ class Varasto:
 
     def ota_varastosta(self, maara):
         if maara < 0:
+            # jos otettava määrä on alle 0, ei ole mahdollista ottaa mitään
             return 0.0
         if maara > self.saldo:
+            # jos määrä on suurempaa kuin saldo, ei sitä voida ottaa kokonaan
+            # otetaan kaikk mitä voidaan
             kaikki_mita_voidaan = self.saldo
             self.saldo = 0.0
 

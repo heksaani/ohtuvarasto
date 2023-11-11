@@ -18,11 +18,21 @@ jobs:
           python-version: '3.10'
       - name: Install Poetry
         run: pip install poetry
+
       - name: Install dependencies
         run: poetry install
+
+      - neme: Install coverage
+        run: poetry add coverage
       - name: Run tests
         run: poetry run coverage run --branch -m pytest
+
       - name: Coverage report
         run: poetry run coverage xml
       - name: Coverage report to Codecov
         run: bash <(curl -s https://codecov.io/bash)
+
+      - name: Add pylint
+        run: poetry add pylint
+      - name: Run pylint
+        run: poetry run pylint src
